@@ -15,13 +15,6 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/satapathytanmay/traditional.git'
-            }
-        }
-
         stage('Build WAR') {
             steps {
                 sh 'mvn clean package'
