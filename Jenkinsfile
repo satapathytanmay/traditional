@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
                     sh """
-                    cp target/traditional-app.war /home/ec2-user/tomcat10/webapps/
+                    cp target/${ARTIFACT_ID}.war /home/ec2-user/tomcat10/webapps/
                     cd /home/ec2-user/tomcat10/bin  
                     ./shutdown.sh 
                     ./startup.sh
