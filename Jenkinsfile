@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'   // configure in Jenkins
-        jdk 'Java8'      // configure in Jenkins
+        maven 'M2_HOME'   // configure in Jenkins
+        jdk 'JAVA_HOME'      // configure in Jenkins
     }
 
     environment {
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sshagent(['tomcat-server-ssh']) {
                     sh """
-                    scp target/traditional-app.war ec2-user@<TOMCAT-IP>:/opt/tomcat/webapps/
+                    cp target/traditional-app.war /home/ec2-user@<TOMCAT-IP>:/opt/tomcat/webapps/
                     ssh ec2-user@<TOMCAT-IP> 'cd /opt/tomcat/bin && ./shutdown.sh && ./startup.sh'
                     """
                 }
