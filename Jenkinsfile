@@ -26,7 +26,7 @@ pipeline {
                 sh """
                 curl -v -u admin:admin \
                 --upload-file target/traditional-app.war \
-                ${NEXUS_URL}/repository/${NEXUS_REPO}/com/example/${ARTIFACT_ID}/${VERSION}/${ARTICAT_ID}-${VERSION}.war
+                ${NEXUS_URL}/repository/${NEXUS_REPO}/com/example/${ARTIFACT_ID}/${VERSION}/${ARTIFACT_ID}-${VERSION}.war
                 """
             }
         }
